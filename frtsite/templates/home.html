@@ -1,19 +1,18 @@
 {% extends "base.html" %} {% block title %} DuckTracker {% endblock %} {% block content %}
 <h1 align="center" style="color:rgb(255, 255, 255)">DuckTracker</h1>
 <p align="center" style="color:rgb(255, 255, 255)">A productivity timer to track your productivity!</p>
-<div class="text-center">
-    <txt align="center" style="font: size 20px; color:rgb(255,255,255)" id="countdown">25:00 </txt>
-</div>
 </input>
-<div class="text-center">
-    <button type="button" id="start" class="btn btn-dark" onclick="startTimer()">
-        Start
-    </button>
-    <button type="button" id="stop" class="btn btn-danger" onclick="pauseTimer()">
-        Pause
-    </button>
-    <button type="button" id="stop" class="btn btn-warning" onclick="restartTimer()">
-        Restart
-    </button>
+<div class="btn-group-lg center" role="group" align="center">
+    <button type="button" class="noselect" onclick="pomodoroStart()">Pomodoro</button>
+    <button type="button" class="noselect" onclick="shortBreakStart()">Short Break</button>
+    <button type="button" class="noselect" onclick="longBreakStart()">Long Break</button>
 </div>
+<div class="text-center">
+</div>
+<txt align="center" style="font: size 20px; color:rgb(255,255,255)" id="countdown">25:00 </txt>
+<div class="wrapper">
+    <!-- <a href="#" id="start" onclick="timer()"><span>Start</span></a> -->
+    <button id="start" class="noselect" onclick="timer()"><span>Start</span></button>
+</div>
+
 {% endblock %}
