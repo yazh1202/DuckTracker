@@ -12,6 +12,9 @@ const longbreak = document.getElementById("longbreak");
 const shortbreak = document.getElementById("shortbreak");
 const countdownEl = document.getElementById("countdown");
 const restartButton = document.getElementById("start");
+const pomAudio = document.getElementById("pomodoroSound");
+const longAudio = document.getElementById("longSound");
+const shortAudio = document.getElementById("shortSound");
 restartButton.addEventListener("click", action);
 let interval;
 
@@ -21,7 +24,7 @@ function action() {
         isOn = false;
         pauseTimer();
     } else {
-        restartButton.innerHTML = "Pause    ";
+        restartButton.innerHTML = "Pause";
         isOn = true;
         startTimer();
     }
@@ -29,18 +32,23 @@ function action() {
 
 function pomodoroStart() {
     currentLabel = "POMODORO";
+    pomAudio.play();
+    onEnd();
     timeLeft = parseInt(timeMap.get("Pomodoro"));
+    clearInterval(interval);
     startTimer();
 }
 
 function longBreakStart() {
     currentLabel = "LONGBREAK";
+    longAudio.play();
     timeLeft = parseInt(timeMap.get("LongBreak"));
     clearInterval(interval);
     startTimer();
 }
 
 function shortBreakStart() {
+    shortAudio.play();
     currentLabel = "SHORTBREAK";
     timeLeft = parseInt(timeMap.get("ShortBreak"));
     clearInterval(interval);
@@ -49,18 +57,24 @@ function shortBreakStart() {
 
 function startTimer() {
     document.body.style.backgroundColor = `var(--${currentLabel})`;
+    isOn = true;
+    if (isOn) {
+        restartButton.innerHTML = "Pause";
+    } else {
+        restartButton.innerHTML = "Pause";
+    }
     interval = setInterval(function() {
         const minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
         seconds = seconds < 10 ? "0" + seconds : seconds;
         countdownEl.innerHTML = `${minutes}:${seconds}`;
-        document.title = `DuckTracker-${minutes}:${seconds}`;
+        document.title = `${minutes}:${seconds}-DuckTracker`;
         timeLeft--;
         if (timeLeft == -1) {
             clearInterval(interval);
+            count++;
         }
     }, 1000);
-    isOn = true;
 }
 
 function pauseTimer() {
@@ -75,17 +89,4 @@ function restartTimer() {
         clearInterval(interval);
         startTimer();
     }
-}
-
-function updateCountdown() {
-    const minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    countdownEl.innerHTML = `
-                $ { minutes }: $ { seconds }
-                `;
-    document.title = `
-                $ { minutes }: $ { seconds }
-                `;
-    timeLeft--;
 }

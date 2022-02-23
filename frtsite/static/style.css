@@ -1,8 +1,13 @@
+:root {
+    --POMODORO: #286d5e;
+    --SHORTBREAK: #737674;
+    --LONGBREAK: #4b6e80;
+}
+
 body {
     height: 100%;
-    /* background-image: linear-gradient( #131313, #131313); */
-    background: #181620;
     font-family: 'Roboto', sans-serif;
+    background-color: var(--POMODORO);
 }
 
 h1 {
@@ -14,10 +19,9 @@ txt {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: .4vw solid #FFFF00;
     padding: 10px;
     text-align: center;
-    font-size: 8vw;
+    font-size: 10rem;
 }
 
 p {
@@ -25,10 +29,10 @@ p {
 }
 
 .wrapper {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-45%, 500%);
+    transform: translate(-60%, 500%);
 }
 
 a {
@@ -45,6 +49,13 @@ a {
     text-align: center;
     position: relative;
     transition: all .35s;
+}
+
+.divCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-1.5%);
 }
 
 a span {
@@ -71,11 +82,6 @@ a:hover:after {
     width: 100%;
 }
 
-.center {
-    top: 150%;
-    left: 50%;
-}
-
 button {
     margin-left: 2vw;
     font-family: inherit;
@@ -84,12 +90,6 @@ button {
 button:focus,
 button:active {
     outline: none;
-}
-
-:root {
-    --POMODORO: hsl(223, 25%, 40%);
-    --SHORTBREAK: hsl(48, 23%, 40%);
-    --LONGBREAK: hsl(105, 16%, 40%);
 }
 
 .noselect {

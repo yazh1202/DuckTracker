@@ -2,17 +2,17 @@
 <h1 align="center" style="color:rgb(255, 255, 255)">DuckTracker</h1>
 <p align="center" style="color:rgb(255, 255, 255)">A productivity timer to track your productivity!</p>
 </input>
-<div class="btn-group-lg center" role="group" align="center">
+<div class="btn-group-lg divCenter" role="group">
     <button type="button" class="noselect" onclick="pomodoroStart()">Pomodoro</button>
     <button type="button" class="noselect" onclick="shortBreakStart()">Short Break</button>
     <button type="button" class="noselect" onclick="longBreakStart()">Long Break</button>
 </div>
 <div class="text-center">
+    <txt style="font: size 20px; color:rgb(255,255,255)" id="countdown">25:00 </txt>
 </div>
-<txt align="center" style="font: size 20px; color:rgb(255,255,255)" id="countdown">25:00 </txt>
+
 <div class="wrapper">
-    <!-- <a href="#" id="start" onclick="timer()"><span>Start</span></a> -->
-    <button id="start" class="noselect" onclick="timer()"><span>Start</span></button>
+    <button id="start" class="noselect"><span>Start</span></button>
 </div>
 
 {% endblock %}
