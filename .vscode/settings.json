@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/d6095552-35da-4a03-8358-4f59d11aa89a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/DuckTracker",
+    "appService.deploySubpath": "."
+}
