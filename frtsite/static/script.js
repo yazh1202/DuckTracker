@@ -33,11 +33,11 @@ function action() {
 function pomodoroStart() {
     currentLabel = "POMODORO";
     pomAudio.play();
-    onEnd();
     timeLeft = parseInt(timeMap.get("Pomodoro"));
     clearInterval(interval);
     startTimer();
 }
+
 
 function longBreakStart() {
     currentLabel = "LONGBREAK";
@@ -72,7 +72,6 @@ function startTimer() {
         timeLeft--;
         if (timeLeft == -1) {
             clearInterval(interval);
-            count++;
         }
     }, 1000);
 }
