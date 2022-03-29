@@ -24,7 +24,7 @@ Repeated cycles improve concentration abilities and the breaks after every cycle
 ---
 ## Primary Azure Services Used
 > 1. Azure App Service
-2. Azure Web Apps
+> 2. Azure Web Apps
 
 
 
